@@ -1,0 +1,39 @@
+package main
+
+import "fmt"
+
+func main() {
+    var T int
+    fmt.Scan(&T)
+    for t := 0; t < T; t = t+1 {
+        var s string
+        fmt.Scanf("\n%s", &s)
+        rowCounts := []int{1, 2, 3, 4, 6, 12}
+        colCounts := []int{12, 6, 4, 3, 2, 1}
+        countValid := 0
+        valid := make([]int, 6)
+        for i := 0; i<6; i = i+1 {
+            for j := 0; j<colCounts[i]; j = j+1 {
+                good := 1;
+                for k := 0; k<rowCounts[i]; k=k+1 {
+                    if s[k*colCounts[i] + j] != 'X' {
+                        good = 0
+                    }
+                }
+                if good != 0 {
+                    if valid[i] == 0 {
+                        countValid = countValid + 1
+                    }
+                    valid[i] = 1
+                }
+            }
+        }
+        fmt.Printf("%d", countValid);
+        for i := 0; i<6; i=i+1 {
+            if valid[i] > 0 {
+                fmt.Printf(" %dx%d", rowCounts[i], colCounts[i]);
+            }
+        }
+        fmt.Printf("\n");
+    }
+}

@@ -1,0 +1,27 @@
+A := File standardInput readLine asNumber;
+B := A;
+C := 0;
+D := 1;
+while(B > 0,
+X := B%10;
+B := (B-X)/10;
+if(X == 0,
+D:=0;
+continue;
+);
+if(A%X ==0,
+C := 1;
+);
+if(A%X > 0,
+D := 0;
+);
+);
+if(C+D == 0,
+"upset" println;
+);
+if(C+D == 1,
+"happy" println;
+);
+if(C+D == 2,
+"happier" println;
+);

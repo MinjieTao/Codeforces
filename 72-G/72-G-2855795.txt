@@ -1,0 +1,9 @@
+A := File standardInput readLine asNumber;
+N0 := 1;
+N1 := 2;
+for(i,1,A-1,
+N2 := N0 + N1;
+N0 := N1;
+N1 := N2;
+);
+N0 println;

@@ -1,0 +1,13 @@
+package main
+import "fmt"
+func main() {
+    var s string
+    fmt.Scanf("%s", &s)
+    var sh int
+    sh = 600
+    time := (int)((int)(s[0] - '0')*sh + (int)(s[1] - '0')*(sh/10) + (int)(s[3] - '0')*10 + (int)(s[4]-'0'))
+    fmt.Scanf("\n%s", &s)
+    time2 := (int)((int)(s[0] - '0')*sh + (int)(s[1] - '0')*(sh/10) + (int)(s[3] - '0')*10 + (int)(s[4]-'0'))
+    time = (time - time2 + 1440)%1440
+    fmt.Printf("%d%d:%d%d\n", time/600, (time/60)%10, (time/10)%6, time%10);
+}
